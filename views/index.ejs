@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css'>
+    <link rel="stylesheet" href='/stylesheets/font-awesome.min.css'>
+    <link rel="stylesheet" href='http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet' href='/stylesheets/style.css'v>
+    <script src='/javascripts/jquery.min.js'></script>
+    <script src='http://code.jquery.com/ui/1.10.2/jquery-ui.js'></script>
+    <script src='/javascripts/bootstrap.min.js'></script>
+    <script src='/javascripts/script.js'></script>
+  </head>
+  <body>
+    <div class="container">
+   
+      <div class="row hidden" id="game-field">
+        <div class="span12">
+          <button id="accept_state" class="btn btn-large btn-block btn-success" type="button">
+            <h4><i class="icon-ok"></i> Sprawdź</h4>
+          </button>
+          <table class="table pagination-centered">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row hide-on-start">
+        <div id="container-title" class="span8 offset2">
+          <button id="start-game" class="btn btn-large btn-block btn-primary" type="button">
+            <h2><i class="icon-circle"></i><i class="icon-circle-blank"></i> Start Mastermind !</h2>
+          </button>
+        </div>
+      </div>
+
+      <hr class="hide-on-start">
+
+      <div class="row hide-on-start" id="game-settings">
+        <div class="span12">
+          <div class="accordion">
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#game-settings" href="#collapseOne">
+                  <i class="icon-cog"></i> Ustawienia gry
+                </a>
+              </div>
+              <div id="collapseOne" class="accordion-body collapse">
+                <div class="accordion-inner">                               
+                  <div class="span1">
+                    <label for="size">Rozmiar:</label>
+                    <input type="number" id="size" class="input-mini" />
+                    <div id="slider-size" class="sliders"></div>
+                  </div>
+
+                  <div class="span1">
+                    <label for="dim">Wymiar:</label>
+                    <input type="number" id="dim" class="input-mini" />
+                    <div id="slider-dim" class="sliders"></div>
+                  </div>
+
+                  <div class="span2">
+                    <span class="label label-warning">Brak limitu prób</span> <br> <button id="attempts-btn" class='btn btn-small'>ogranicz ilość</button>
+                  </div>
+                  
+                  <div id="attempts-slider" class="span1 hidden">
+                    <label for="max">Próby:</label>
+                    <input type="number" id="max" class="input-mini" title="Liczba prób. 0 - nieskończona ilość"/>
+                    <div id="slider-max" class="sliders"></div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="accordion-group">
+              <div class="accordion-heading">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#game-settings" href="#collapseTwo">
+                  <i class="icon-info-sign"></i> Zasady gry
+                </a>
+              </div>
+              <div id="collapseTwo" class="accordion-body collapse in">
+                <div class="accordion-inner">                               
+                  <p class="well">
+                    Gracz może ustawić ilość <span class="label">kolorów</span> i <span class="label">kulek</span>  oraz ograniczyć może <span class="label">ilość ruchów</span>. Po kliknięciu przycisku <span class="label label-info">START</span> komputer losuje ciag kolorów o wybranym (jeśli nie to domyślnym) rozmiarze. <br>
+                    Po każdej próbie sprawdzenia ciagu z prawej strony pojawia się czarne i czarne-puste małe kulki.
+                    Czarne oznaczaja dobrze trafiony kolor na dobrym miejscu. <br>
+                    Czarne-puste oznaczaja dobrze trafiony kolor na złym miejscu. <br>
+                    Nie pokazuja zaś one miejsca w ciagu. Kolejność jest przypadkowa. <br>
+                    Gra kończy się po poprawnym wskazaniu kolorów przez gracza lub też wyczerpaniu ruchów.
+                  </p>
+                  <h5>Przykład planszy</h5>
+                  <img class="img-rounded" src="/images/mastermind.png">
+                  <h4 class="text-center">Powodzenia!</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

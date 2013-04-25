@@ -1,0 +1,17 @@
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.sliders {
+  height: 170px;
+  margin-bottom: 20px;
+}
+
+table tbody tr:first-child {
+  background-color: #FFFFCC ;
+}
+
+.icon-circle{
+  text-shadow: 0px 0px 5px white;
+}
