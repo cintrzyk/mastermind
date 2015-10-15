@@ -10,7 +10,7 @@ $(document).ready(function() {
     7: 'grey',
     8: 'orange',
     9: 'purple'
-  }
+  };
 
   var create_option = function (min, max, current) {
     return {
@@ -26,7 +26,7 @@ $(document).ready(function() {
     dim: create_option(2, 9, 9),
     max: create_option(10, 30, null)
   }
-  
+
   var update_settings = function (type, current) {
     settings[type].current = current;
     settings[type].custom = true;
@@ -37,7 +37,7 @@ $(document).ready(function() {
     var type = this.id.split('-')[1];
     var input_field = $("#" + type);
     var that = this;
-   
+
     $(this).slider({
       orientation: "vertical",
       range: "min",
@@ -62,14 +62,14 @@ $(document).ready(function() {
 
   $('#start-game').on('click', function () {
     var url = "/play/";
-    
+
     for (var opt in settings) {
       var obj = settings[opt];
       if (obj.custom) {
         url += opt + '/' + obj.current + '/';
       }
     };
-    
+
     $.ajax({
       url: url,
       type: 'GET',
@@ -82,7 +82,7 @@ $(document).ready(function() {
       }
     });
   });
-  
+
   var create_circle = function (color_number) {
     return " \
     <div class='btn-group btn-group-vertical'> \
@@ -119,13 +119,13 @@ $(document).ready(function() {
     });
 
     $('#game-field table tbody').append("<tr><td><div class='btn-group'></div></td><td></td></tr>");
-       
+
     for (var i = 0; i < settings.size.current; i++) {
       $('.btn-group', game_table_body)
         .first()
           .append(create_circle(0));
     }
-    
+
     $('.next-color, .prev-color')
       .click(function () {
         if ($(this).hasClass('next-color')) {
@@ -137,7 +137,7 @@ $(document).ready(function() {
   };
 
   var change_color = function (e, change_case) {
-    var new_color, 
+    var new_color,
       current_color = parseInt(e.attr('data-color'), 10);
 
     if (change_case === 'next-color') {
@@ -192,7 +192,7 @@ $(document).ready(function() {
         alert("Nie można wysłać rozwiazania!");
       }
     });
-    
+
   });
 
   var create_next_row = function () {
@@ -207,10 +207,10 @@ $(document).ready(function() {
         var circles = "",
           i;
         for (i = 0; i < retVal.black_points; i++) {
-          circles += " <i class='icon-circle'></i>";     
+          circles += " <i class='icon-circle'></i>";
         };
         for (i = 0; i < retVal.white_points; i++) {
-          circles += " <i class='icon-circle-blank'></i>";     
+          circles += " <i class='icon-circle-blank'></i>";
         };
 
         return circles;
@@ -229,7 +229,7 @@ $(document).ready(function() {
               .remove();
       },
       first_row = $('#game-field table tbody').find('tr').first();
-    
+
       if (retVal.attempts_left === 0 || player_won) {
         print_and_clear(first_row);
         if (player_won){
